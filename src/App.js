@@ -27,19 +27,21 @@ export class App extends Component {
     boxList: [
       {
         id: 1,
-        backgroundImage: "url('https://picsum.photos/200')",
+        image:
+          "url('https://images.unsplash.com/photo-1635123580570-eecbc0936eef')",
         title: "Box 1",
       },
       {
         id: 2,
-        backgroundImage: "url('https://picsum.photos/200')",
+        image:
+          "url('https://images.unsplash.com/photo-1635020287626-7f0c324b63f4')",
         title: "Box 2",
       },
 
       {
         id: 3,
-        backgroundImage:
-          "url('https://source.unsplash.com/random/200x200?sig=')",
+        image:
+          "url('https://images.unsplash.com/photo-1634765117740-bd7c476731c1')",
         title: "Box 3",
       },
     ],
@@ -93,18 +95,21 @@ export class App extends Component {
   handleBodyParts = () => {
     return (
       <div className="App-body-box-container">
-        {this.state.boxList.map(({ id, backgroundImage, title }) => (
+        {this.state.boxList.map(({ id, image, title }) => (
           <div
             className="App-body-box"
             style={{
-              backgroundImage:
-                "url('https://source.unsplash.com/random/200x200?sig=" +
-                id +
-                "')",
-              color: "yellow",
+              backgroundImage: image,
+              backgroundSize: "cover",
+              // image,
+              // "url('https://source.unsplash.com/random/250x250?sig=" +
+              // id +
+              // "')",  worked till this morning... now service is unavailable...
+              color: "purple",
             }}
           >
-            <Box key={id} image={backgroundImage} title={title} />
+            <div>{id}</div>
+            <Box key={id} image={image} title={title} />
           </div>
         ))}
       </div>
